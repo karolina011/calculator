@@ -2,22 +2,46 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Table, {IColumn} from "./components/Table/Table";
+import {IButton} from "./components/Buttons/BaseButton";
+
+const columns : IColumn[] = [
+    {
+        id: 'firstname',
+        title: 'Firstname',
+    },
+    {
+        id: 'lastname',
+        title: 'Lastname',
+    }
+]
+
+const rows = [
+    {
+        firstname: 'Jan',
+        lastname: 'Kowalski'
+    },
+    {
+        firstname: 'Anna',
+        lastname: 'Nowak'
+    }
+]
+const actions : IButton[] = [
+    {
+        type: 'delete',
+        title: 'Delete'
+    }
+]
+
+
+
 function App() {
+
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Table columns={columns} rows={rows} actions={actions}/>
       </header>
     </div>
   );
